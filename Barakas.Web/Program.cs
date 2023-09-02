@@ -1,7 +1,23 @@
+using Barakas.Web.Service;
+using Barakas.Web.Service.IService;
+using Barakas.Web.Utility;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddHttpClient<IRoomService, IRoomService>();
+
+SD.RoomAPIBase = builder.Configuration["ServiceUrls:RoomAPI"];
+
+builder.Services.AddScoped<IBaseService, BaseService>();
+
+builder.Services.AddScoped<IRoomService, RoomService>();
 
 var app = builder.Build();
 

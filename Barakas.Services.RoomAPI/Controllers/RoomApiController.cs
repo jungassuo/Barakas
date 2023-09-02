@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Barakas.Services.RoomAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/room")]
     [ApiController]
     public class RoomApiController : ControllerBase
     {
