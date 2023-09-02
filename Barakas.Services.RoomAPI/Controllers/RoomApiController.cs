@@ -129,6 +129,7 @@ namespace Barakas.Services.RoomAPI.Controllers
 
 
         [HttpDelete]
+        [Route("{id:int}")]
         public ResponseDto Delete(int id)
         {
             try
