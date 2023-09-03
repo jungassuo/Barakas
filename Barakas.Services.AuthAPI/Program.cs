@@ -1,4 +1,7 @@
 using Barakas.Services.AuthAPI.Data;
+using Barakas.Services.AuthAPI.Models;
+using Barakas.Services.AuthAPI.Services;
+using Barakas.Services.AuthAPI.Services.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +13,18 @@ builder.Services.AddDbContext<AddDbContext>(option => {
 
 // Add services to the container.
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AddDbContext>().AddDefaultTokenProviders();
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSettings:JwtOptions"));
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AddDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddControllers();
+
+//Autentifikavimo servisai
+
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
