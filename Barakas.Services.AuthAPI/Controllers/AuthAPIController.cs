@@ -44,5 +44,21 @@ namespace Barakas.Services.AuthAPI.Controllers
 
             return Ok(_responseDto);
         }
+
+        [HttpPost("AssignRole")]
+        public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDTO model)
+        {
+
+            var loginResponse = await _authService.AssignRole(model.Email,model.Role.ToUpper());
+
+            if (!loginResponse)
+            {
+                _responseDto.IsSuccess = false;
+                _responseDto.Message = "Error encountered";
+                return BadRequest(_responseDto);
+            }
+            return Ok(_responseDto);
+        }
+
     }
 }

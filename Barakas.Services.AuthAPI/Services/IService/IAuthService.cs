@@ -6,5 +6,6 @@ namespace Barakas.Services.AuthAPI.Services.IService
     {
         Task<string> Register(RegistrationRequestDTO registration);
         Task<LoginResponseDTO> Login(LoginRequestDTO loginRequest);
+        Task<bool> AssignRole(string email, string roleName);
     }
 }

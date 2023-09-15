@@ -1,6 +1,7 @@
 using Barakas.Web.Service;
 using Barakas.Web.Service.IService;
 using Barakas.Web.Utility;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,13 +12,29 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();
 
-builder.Services.AddHttpClient<IRoomService, IRoomService>();
+builder.Services.AddHttpClient<IRoomService, RoomService>();
+
+builder.Services.AddHttpClient<IAuthService, AuthService>();
 
 SD.RoomAPIBase = builder.Configuration["ServiceUrls:RoomAPI"];
 
+SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+builder.Services.AddScoped<ITokenProvider, TokenProvider>();
+
 builder.Services.AddScoped<IBaseService, BaseService>();
 
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 builder.Services.AddScoped<IRoomService, RoomService>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
+    options.ExpireTimeSpan = TimeSpan.FromHours(10);
+    options.LoginPath = "/Auth/Login";
+    options.AccessDeniedPath = "/Auth/AccessDenied";
+});
 
 var app = builder.Build();
 
@@ -33,6 +50,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

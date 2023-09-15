@@ -1,4 +1,4 @@
-﻿namespace Barakas.Services.AuthAPI.Models.DTO
+﻿namespace Barakas.Web.Models
 {
     public class RegistrationRequestDTO
     {
