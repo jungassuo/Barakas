@@ -12,15 +12,27 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();
 
+//Apsirasyti naudojamus servisus
+
 builder.Services.AddHttpClient<IRoomService, RoomService>();
 
+builder.Services.AddHttpClient<IProductService, ProductService>();
+
 builder.Services.AddHttpClient<IAuthService, AuthService>();
+
+//Priskirti servisu ip reiksmes
 
 SD.RoomAPIBase = builder.Configuration["ServiceUrls:RoomAPI"];
 
 SD.AuthAPIBase = builder.Configuration["ServiceUrls:AuthAPI"];
 
+SD.ProductAPIBase = builder.Configuration["ServiceUrls:ProductAPI"];
+
+//Autentifikacijai reikalingas dalykas
+
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+//Uzregistruoti naudojamus servisus
 
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
 
@@ -29,6 +41,10 @@ builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddScoped<IRoomService, RoomService>();
+
+builder.Services.AddScoped<IProductService, ProductService>();
+
+//Prideti autentifikacija kaip servisa ir apsirasyti path'us
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
     options.ExpireTimeSpan = TimeSpan.FromHours(10);

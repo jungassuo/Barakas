@@ -30,7 +30,7 @@ namespace Barakas.Web.Service
                     ApiType = SD.ApiType.POST,
                     Data = loginRequestDTO,
                     Url = SD.AuthAPIBase + "/api/auth/login"
-                });
+                },withBearer: false);
         }
 
         public async Task<ResponseDto?> RegisterAsync(RegistrationRequestDTO registrationRequestDTO)
@@ -41,7 +41,7 @@ namespace Barakas.Web.Service
                      ApiType = SD.ApiType.POST,
                      Data = registrationRequestDTO,
                      Url = SD.AuthAPIBase + "/api/auth/register"
-                 });
+                 }, withBearer: false);
         }
     }
 }

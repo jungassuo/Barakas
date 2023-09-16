@@ -3,6 +3,7 @@ using Azure;
 using Barakas.Services.RoomAPI.Data;
 using Barakas.Services.RoomAPI.Models;
 using Barakas.Services.RoomAPI.Models.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace Barakas.Services.RoomAPI.Controllers
 {
     [Route("api/room")]
     [ApiController]
+    [Authorize]
     public class RoomApiController : ControllerBase
     {
         private readonly AddDbContext _db;
@@ -84,6 +86,7 @@ namespace Barakas.Services.RoomAPI.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Post([FromBody] RoomDto roomdto)
         {
 
@@ -130,6 +133,7 @@ namespace Barakas.Services.RoomAPI.Controllers
 
         [HttpDelete]
         [Route("{id:int}")]
+        [Authorize(Roles = "ADMIN")]
         public ResponseDto Delete(int id)
         {
             try

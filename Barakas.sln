@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barakas.Services.RoomAPI", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barakas.Web", "Barakas.Web\Barakas.Web.csproj", "{94877E50-3AD1-40BF-B0FC-4CC2E0233D9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barakas.Services.AuthAPI", "Barakas.Services.AuthAPI\Barakas.Services.AuthAPI.csproj", "{A9B97469-FAD8-4769-A7FE-08E9BA58EC3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barakas.Services.AuthAPI", "Barakas.Services.AuthAPI\Barakas.Services.AuthAPI.csproj", "{A9B97469-FAD8-4769-A7FE-08E9BA58EC3F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barakas.Services.ProductAPI", "ProductAPI\Barakas.Services.ProductAPI.csproj", "{550DFE36-715B-4C68-B10E-7871A3BE179D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barakas.Services.ShoppingCartAPI", "Barakas.Services.ShoppingCartAPI\Barakas.Services.ShoppingCartAPI.csproj", "{ED2BF0E6-3A02-44F6-A459-46DF01E3B7FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,14 @@ Global
 		{A9B97469-FAD8-4769-A7FE-08E9BA58EC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9B97469-FAD8-4769-A7FE-08E9BA58EC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9B97469-FAD8-4769-A7FE-08E9BA58EC3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{550DFE36-715B-4C68-B10E-7871A3BE179D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550DFE36-715B-4C68-B10E-7871A3BE179D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550DFE36-715B-4C68-B10E-7871A3BE179D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550DFE36-715B-4C68-B10E-7871A3BE179D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED2BF0E6-3A02-44F6-A459-46DF01E3B7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED2BF0E6-3A02-44F6-A459-46DF01E3B7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED2BF0E6-3A02-44F6-A459-46DF01E3B7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED2BF0E6-3A02-44F6-A459-46DF01E3B7FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +55,8 @@ Global
 		{31286FD7-0B7A-4F7C-BB21-642B6BB70A97} = {87892C85-E763-4723-9108-DA6AD840F3A3}
 		{94877E50-3AD1-40BF-B0FC-4CC2E0233D9C} = {EAEC7AA3-D9F0-445C-9E29-5C54FFA14B08}
 		{A9B97469-FAD8-4769-A7FE-08E9BA58EC3F} = {87892C85-E763-4723-9108-DA6AD840F3A3}
+		{550DFE36-715B-4C68-B10E-7871A3BE179D} = {87892C85-E763-4723-9108-DA6AD840F3A3}
+		{ED2BF0E6-3A02-44F6-A459-46DF01E3B7FF} = {87892C85-E763-4723-9108-DA6AD840F3A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0544D6A-D048-431C-B9F6-D9038BF9B962}
